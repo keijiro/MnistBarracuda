@@ -1,6 +1,8 @@
 MnistBarracuda
 --------------
 
+![photo](https://i.imgur.com/YeB8Ilul.jpg)
+
 **MnistBarracuda** is a simple example project that shows how to run the MNIST
 handwritten digit recognition model with [Unity Barracuda] neural network
 inference library 
