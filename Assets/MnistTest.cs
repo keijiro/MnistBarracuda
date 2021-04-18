@@ -9,7 +9,7 @@ sealed class MnistTest : MonoBehaviour
 
     void Start()
     {
-        // Convert the input image to a 1x28x28x1 tensor.
+        // Convert the input image into a 1x28x28x1 tensor.
         using var input = new Tensor(1, 28, 28, 1);
 
         for (var y = 0; y < 28; y++)
