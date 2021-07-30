@@ -1,11 +1,14 @@
 using System.Linq;
 using UnityEngine;
 using Unity.Barracuda;
+using UI = UnityEngine.UI;
 
 sealed class MnistTest : MonoBehaviour
 {
     public NNModel _model;
     public Texture2D _image;
+    public UI.RawImage _imageView;
+    public UI.Text _textView;
 
     void Start()
     {
@@ -33,6 +36,10 @@ sealed class MnistTest : MonoBehaviour
         var scores = Enumerable.Range(0, 10).
                      Select(i => output[0, 0, 0, i]).SoftMax().ToArray();
 
-        for (var i = 0; i < 10; i++) Debug.Log($"{i}: {scores[i]:0.00}");
+        // Show the results on the UI.
+        _imageView.texture = _image;
+        _textView.text = Enumerable.Range(0, 10).
+                         Select(i => $"{i}: {scores[i]:0.00}").
+                         Aggregate((t, s) => t + "\n" + s);
     }
 }
