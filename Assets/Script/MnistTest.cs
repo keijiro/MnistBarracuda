@@ -26,7 +26,8 @@ sealed class MnistTest : MonoBehaviour
         }
 
         // Run the MNIST model.
-        using var worker = ModelLoader.Load(_model).CreateWorker();
+        using var worker =
+          ModelLoader.Load(_model).CreateWorker(WorkerFactory.Device.CPU);
 
         worker.Execute(input);
 
